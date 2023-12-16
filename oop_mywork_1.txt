@@ -1,9 +1,17 @@
 Konu: Upcasting
-Bir C# programı yazın. GeometrikSekil adında bir temel sınıf oluşturun ve içinde "Bir şekil çiziliyor." yazan bir Ciz metodu bulunsun. Ardından bu temel sınıftan türetilmiş Daire ve Dikdortgen sınıfları oluşturun. Programınızda her iki türetilmiş sınıftan nesneler oluşturun ve bunları temel sınıfa yükseltin (upcast). Her nesne üzerinde Ciz metodunu çağırın ve çıktıyı gözlemleyin.
+Bir C# programı yazın. GeometrikSekil adında bir temel sınıf oluşturun ve içinde "Bir şekil çiziliyor." yazan bir Ciz metodu bulunsun.
+Ardından bu temel sınıftan türetilmiş Daire ve Dikdortgen sınıfları oluşturun.
+Programınızda her iki türetilmiş sınıftan nesneler oluşturun ve bunları temel sınıfa yükseltin (upcast).
+Her nesne üzerinde Ciz metodunu çağırın ve çıktıyı gözlemleyin.
 Konu: Upcasting ve Metot Çağırma
-İlk programı genişletin. Nesneleri temel sınıfa yükselttikten sonra, onları orijinal tiplerine (Daire veya Dikdortgen) indirgeyin (downcast). is anahtar kelimesini kullanarak indirgenen nesnelerin doğru türde olup olmadığını kontrol edin. Eğer doğru türdeyse, her nesne üzerinde özel bir metod (örneğin, Daire için AlanHesapla ve Dikdortgen için CevreHesapla) çağırın.
+İlk programı genişletin. Nesneleri temel sınıfa yükselttikten sonra, onları orijinal tiplerine (Daire veya Dikdortgen) indirgeyin (downcast).
+is anahtar kelimesini kullanarak indirgenen nesnelerin doğru türde olup olmadığını kontrol edin.
+Eğer doğru türdeyse, her nesne üzerinde özel bir metod (örneğin, Daire için AlanHesapla ve Dikdortgen için CevreHesapla) çağırın.
 Konu: Soyutlama ve Arayüzler
-Bir ISes adında bir arayüz oluşturun ve içinde "Ses çıkar" metodu bulunsun. GeometrikSekil sınıfını bu arayüzü uygulayacak şekilde değiştirin. Daire ve Dikdortgen sınıflarında ISes arayüzünü uygulayın ve her bir şekil için benzersiz bir ses yazdırın. Programınızı, her nesnenin üzerindeki ISes metodunu çağırarak çok biçimliliği göstermek için değiştirin.
+Bir ISes adında bir arayüz oluşturun ve içinde "Ses çıkar" metodu bulunsun.
+GeometrikSekil sınıfını bu arayüzü uygulayacak şekilde değiştirin.
+Daire ve Dikdortgen sınıflarında ISes arayüzünü uygulayın ve her bir şekil için benzersiz bir ses yazdırın.
+Programınızı, her nesnenin üzerindeki ISes metodunu çağırarak çok biçimliliği göstermek için değiştirin.
 
 
 
