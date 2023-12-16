@@ -1,0 +1,79 @@
+Konu: Upcasting
+Bir C# programı yazın. GeometrikSekil adında bir temel sınıf oluşturun ve içinde "Bir şekil çiziliyor." yazan bir Ciz metodu bulunsun. Ardından bu temel sınıftan türetilmiş Daire ve Dikdortgen sınıfları oluşturun. Programınızda her iki türetilmiş sınıftan nesneler oluşturun ve bunları temel sınıfa yükseltin (upcast). Her nesne üzerinde Ciz metodunu çağırın ve çıktıyı gözlemleyin.
+Konu: Upcasting ve Metot Çağırma
+İlk programı genişletin. Nesneleri temel sınıfa yükselttikten sonra, onları orijinal tiplerine (Daire veya Dikdortgen) indirgeyin (downcast). is anahtar kelimesini kullanarak indirgenen nesnelerin doğru türde olup olmadığını kontrol edin. Eğer doğru türdeyse, her nesne üzerinde özel bir metod (örneğin, Daire için AlanHesapla ve Dikdortgen için CevreHesapla) çağırın.
+Konu: Soyutlama ve Arayüzler
+Bir ISes adında bir arayüz oluşturun ve içinde "Ses çıkar" metodu bulunsun. GeometrikSekil sınıfını bu arayüzü uygulayacak şekilde değiştirin. Daire ve Dikdortgen sınıflarında ISes arayüzünü uygulayın ve her bir şekil için benzersiz bir ses yazdırın. Programınızı, her nesnenin üzerindeki ISes metodunu çağırarak çok biçimliliği göstermek için değiştirin.
+
+
+
+
+
+
+
+internal class Program
+{
+    interface Ises
+    {
+        void SesCikar();
+
+    }
+   public class GeometrikSekil :Ises
+    {
+        public void ciz()
+        {
+            Console.WriteLine("Sekil ciziliyor");
+        }
+        public virtual void SesCikar()
+        {
+
+        }
+    }
+       public class Daire :GeometrikSekil,Ises
+        {
+     public   void AlanHesapla(double r)
+        {
+            double alan = Math.PI * r * r;
+            Console.WriteLine("Dairenin alani :" + " " + alan);
+        }
+        public override void SesCikar()
+        {
+            Console.WriteLine("Daire Ses Cikardi");
+        }
+    }
+     public  class Dikdortgen:GeometrikSekil,Ises
+        {
+     public   void CevreHesapla(int kisa,int uzun)
+        {
+            int cevre = kisa + uzun + uzun;
+            Console.WriteLine("Dikdortgenin Cevresi :" + " " + cevre);
+        }
+        public override void SesCikar()
+        {
+            Console.WriteLine("Dikdortgen Ses Cikardi");
+        }
+    }
+    
+
+
+
+    private static void Main(string[] args)
+    {
+        Daire daire_object = new Daire();
+        Dikdortgen dikdortgen_object = new Dikdortgen();
+
+        GeometrikSekil[] geometrikSekils = {(GeometrikSekil)daire_object,(GeometrikSekil)dikdortgen_object};
+       if(geometrikSekils [0] is Daire)
+        {
+          Daire downcasted_daire=(Daire)geometrikSekils[0];
+            //downcasted_daire.AlanHesapla(5);
+            downcasted_daire.SesCikar();
+        }
+       if (geometrikSekils[1] is Dikdortgen)
+        {
+            Dikdortgen downcasted_dikdortgen = (Dikdortgen)geometrikSekils[1];
+            //downcasted_dikdortgen.CevreHesapla(5,7);
+            downcasted_dikdortgen.SesCikar();
+        }
+    }
+}
